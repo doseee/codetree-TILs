@@ -21,21 +21,25 @@ public class Main {
   }
 
   public static void calc() {
-    String s1 = Integer.toString(select[0]);
-    String s2 = Integer.toString(select[1]);
-    String s3 = Integer.toString(select[2]);
+    int[] t = new int[3];
+    for (int i = 0; i < 3; i++)
+      t[i] = select[i];
 
-    int idx = 0;
     while (true) {
       int sum = 0;
-      if (s1.length() - 1 - idx < 0) break;
-      sum += s1.charAt(s1.length() - 1 - idx) - '0';
-      if (s2.length() - 1 - idx < 0) break;
-      sum += s2.charAt(s2.length() - 1 - idx) - '0';
-      if (s3.length() - 1 - idx < 0) break;
-      sum += s3.charAt(s3.length() - 1 - idx) - '0';
-      idx++;
-      if (sum > 10) return;
+      for (int i = 0; i < 3; i++)
+        sum += t[i] % 10;
+
+      if (sum >= 10) return;
+
+      int cnt = 0;
+      for (int i = 0; i < 3; i++) {
+        t[i] /= 10;
+        if (t[i] == 0)
+          cnt++;
+      }
+
+      if (cnt == 3) break;
     }
 
     ans = Math.max(ans, select[0] + select[1] + select[2]);
