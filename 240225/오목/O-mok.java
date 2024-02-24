@@ -91,7 +91,7 @@ public class Main {
 
   public static void move2(int t, int x, int y, int cnt) {
     if (cnt == 5) {
-      System.out.print(t + "\n" + (x - 1) + " " + (y + 1));
+      System.out.print(t + "\n" + (x - 1) + " " + (y + 3));
       System.exit(0);
       return;
     }
