@@ -75,6 +75,8 @@ public class Main {
           move2(map[i][j], i, j, 1);
         }
       }
+      
+      System.out.print(0);
     }
   }
 
