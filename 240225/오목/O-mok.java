@@ -61,7 +61,7 @@ public class Main {
         }
 
         if (cnt == 5) {
-          System.out.print(t + "\n" + (i - 1) + " " + (j + 1));
+          System.out.print(t + "\n" + (j - 1) + " " + (i + 1));
           System.exit(0);
         }
       }
