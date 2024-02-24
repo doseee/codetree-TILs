@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
 
   static int[][] map;
+  static int f;
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,6 +16,7 @@ public class Main {
         map[i][j] = Integer.parseInt(st.nextToken());
     }
 
+    f = 0;
     //가로
     for (int i = 0; i < 19; i++) {
       int t = map[i][0], cnt = 0;
@@ -73,17 +75,19 @@ public class Main {
         if (map[i][j] != 0) {
           move1(map[i][j], i, j, 1);
           move2(map[i][j], i, j, 1);
+          if (f == 1)
+            System.exit(0);
         }
       }
-      
-      System.out.print(0);
     }
+
+    System.out.print(0);
   }
 
   public static void move1(int t, int x, int y, int cnt) {
     if (cnt == 5) {
+      f = 1;
       System.out.print(t + "\n" + (x - 1) + " " + (y - 1));
-      System.exit(0);
       return;
     }
 
@@ -93,8 +97,8 @@ public class Main {
 
   public static void move2(int t, int x, int y, int cnt) {
     if (cnt == 5) {
+      f = 1;
       System.out.print(t + "\n" + (x - 1) + " " + (y + 3));
-      System.exit(0);
       return;
     }
 
