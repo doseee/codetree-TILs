@@ -29,8 +29,7 @@ public class Main {
           t.append(map[i][j + k]);
         if (t.length() == 3) {
           check(t);
-          if (!t.toString().equals("LEE"))
-            t = new StringBuilder();
+          t = new StringBuilder();
         }
       }
     }
@@ -43,8 +42,7 @@ public class Main {
           t.append(map[j + k][i]);
         if (t.length() == 3) {
           check(t);
-          if (!t.toString().equals("LEE"))
-            t = new StringBuilder();
+          t = new StringBuilder();
         }
       }
     }
