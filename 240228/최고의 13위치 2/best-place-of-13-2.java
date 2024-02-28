@@ -47,7 +47,10 @@ public class Main {
     }
 
     ans += max;
-    for (int j = y; j > y - 3; j--)
+    int t = y - 3;
+    if (t < 0)
+        t = 0;
+    for (int j = y; j > t; j--)
       a[x][j] = 0;
   }
 }
