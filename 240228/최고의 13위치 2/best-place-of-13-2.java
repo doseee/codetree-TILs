@@ -24,7 +24,7 @@ public class Main {
   }
 
   public static void calc() {
-    int max = 0, x = -1, y = -1;
+    int max = 0, x = 0, y = 0;
     for (int i = 0; i < n; i++) {
       int sum = 0;
       for (int j = 0; j < 3; j++)
