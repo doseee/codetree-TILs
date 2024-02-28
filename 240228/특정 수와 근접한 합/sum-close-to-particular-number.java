@@ -28,7 +28,7 @@ public class Main {
   public static void comb(int cnt, int idx) {
     if (cnt == n - 2) {
       int sum = 0;
-      for (int i = 0; i < cnt; i++)
+      for (int i = 0; i < select.length; i++)
         sum += select[i];
       
       ans = Math.min(ans, Math.abs(sum - s));
