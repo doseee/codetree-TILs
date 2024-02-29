@@ -26,12 +26,13 @@ public class Main {
   }
 
   public static void comb(int cnt, int idx, int sum) {
+    if (idx >= n) return;
     if (cnt == n - 2) {
       ans = Math.min(ans, Math.abs(sum - s));
       return;
     }
 
-    for (int i = idx; i < n; i++)
-      comb(cnt + 1, i + 1, sum + a[i]);
+    comb(cnt + 1, idx + 1, sum + a[idx]);
+    comb(cnt, idx + 1, sum);
   }
 }
