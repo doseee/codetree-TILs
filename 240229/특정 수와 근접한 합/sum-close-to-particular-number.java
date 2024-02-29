@@ -20,25 +20,18 @@ public class Main {
 
     select = new int[n - 2];
     ans = Integer.MAX_VALUE;
-
-    boolean[] visit = new boolean[n];
-    dfs(0, 0, visit);
+    comb(0, 0, 0);
 
     System.out.print(ans);
   }
 
-  public static void dfs(int sum, int d, boolean[] visit) {
-    if (d == n - 2) {
+  public static void comb(int cnt, int idx, int sum) {
+    if (cnt == n - 2) {
       ans = Math.min(ans, Math.abs(sum - s));
       return;
     }
 
-    for (int i = 0; i < n; i++) {
-      if (!visit[i]) {
-        visit[i] = true;
-        dfs(sum + a[i], d + 1, visit);
-        visit[i] = false;
-      }
-    }
+    for (int i = idx; i < n; i++)
+      comb(cnt + 1, i + 1, sum + a[i]);
   }
 }
