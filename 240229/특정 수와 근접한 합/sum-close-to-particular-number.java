@@ -15,24 +15,17 @@ public class Main {
 
     a = new int[n];
     st = new StringTokenizer(br.readLine());
-    for (int i = 0; i < n; i++)
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
       a[i] = Integer.parseInt(st.nextToken());
-
-    select = new int[n - 2];
-    ans = Integer.MAX_VALUE;
-    comb(0, 0, 0);
-
-    System.out.print(ans);
-  }
-
-  public static void comb(int cnt, int idx, int sum) {
-    if (idx >= n) return;
-    if (cnt == n - 2) {
-      ans = Math.min(ans, Math.abs(sum - s));
-      return;
+      sum += a[i];
     }
 
-    comb(cnt + 1, idx + 1, sum + a[idx]);
-    comb(cnt, idx + 1, sum);
+    ans = Integer.MAX_VALUE;
+    for (int i = 0; i < n; i++)
+      for (int j = i + 1; j < n; j++)
+        ans = Math.min(Math.abs(sum - (a[i] + a[j]) - s), ans);
+
+    System.out.print(ans);
   }
 }
