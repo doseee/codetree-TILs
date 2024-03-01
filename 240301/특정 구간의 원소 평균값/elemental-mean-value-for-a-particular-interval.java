@@ -17,14 +17,14 @@ public class Main {
       a[i] = Integer.parseInt(st.nextToken());
 
     ans = n;
-    for (int i = 2; i < n; i++)
+    for (int i = 2; i <= n; i++)
       calc(i);
 
     System.out.print(ans);
   }
 
   public static void check(double x, int s, int e) {
-    for (int i = s; i < e; i++) {
+    for (int i = s; i <= e; i++) {
       if (x == a[i]) {
         ans++;
         return;
@@ -37,12 +37,12 @@ public class Main {
     for (int i = 0; i < d; i++)
       sum += a[i];
 
-    check((double) sum / d, 0, d);
+    check((double) sum / d, 0, d - 1);
 
     for (int i = d; i < n; i++) {
       sum -= a[i - d];
       sum += a[i];
-      check((double) sum / d, i - d, i);
+      check((double) sum / d, i - d + 1, i);
     }
   }
 }
