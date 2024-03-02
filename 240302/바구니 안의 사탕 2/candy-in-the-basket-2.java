@@ -19,8 +19,9 @@ public class Main {
       a[y] += x;
     }
 
-    int sum = 0, ans = 0;
-    for (int i = 0; i <= k * 2; i++)
+    int sum = 0, ans = 0, max = k * 2;
+    if (max > 101) max = 100;
+    for (int i = 0; i <= max; i++)
       sum += a[i];
 
     ans = Math.max(ans, sum);
