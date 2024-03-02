@@ -39,7 +39,10 @@ public class Main {
   }
 
   public static void dfs(int g, int h, int s, int e) {
-    if (e >= n) return;
+    if (e >= n) {
+      ans = Math.max(ans, (a[e - 1].x - a[s].x));
+      return;
+    }
     if (g != 0 && h != 0 && g == h)
       ans = Math.max(ans, (a[e - 1].x - a[s].x));
 
