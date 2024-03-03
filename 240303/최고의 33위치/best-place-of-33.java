@@ -19,7 +19,7 @@ public class Main {
     }
 
     ans = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 2; i++) {
       int sum = calc(i, 0);
       ans = Math.max(ans, sum);
       for (int j = 3; j < n; j++) {
