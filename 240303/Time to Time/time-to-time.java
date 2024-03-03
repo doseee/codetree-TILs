@@ -13,10 +13,9 @@ public class Main {
     int d = Integer.parseInt(st.nextToken());
 
     int ans = 0;
-    if (d - b < 0) {
+    if (d - b < 0)
       c--;
-      ans += 60 + d - b;
-    }
+    ans += d - b;
     ans += (c - a) * 60;
 
     System.out.print(ans);
