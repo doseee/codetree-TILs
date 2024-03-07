@@ -9,22 +9,22 @@ public class Main {
     StringTokenizer st = new StringTokenizer(br.readLine());
     int n = Integer.parseInt(st.nextToken());
     int m = Integer.parseInt(st.nextToken());
-
-    HashMap<String, Integer> h1 = new HashMap<>();
-    HashMap<Integer, String> h2 = new HashMap<>();
-     for (int i = 0; i < n; i++) {
+    
+    HashMap<String, Integer> h = new HashMap<>();
+    String[] str = new String[n + 1];
+    for (int i = 1; i <= n; i++) {
       String s = br.readLine();
-      h1.put(s, i + 1);
-      h2.put(i + 1, s);
+      h.put(s, i);
+      str[i] = s;
     }
 
     for (int i = 0; i < m; i++) {
       String s = br.readLine();
-      Character c = s.charAt(0);
+      char c = s.charAt(0);
       if (Character.isDigit(c))
-        System.out.println(h2.get(Integer.parseInt(s)));
+        System.out.println(str[Integer.parseInt(s)]);
       else
-        System.out.println(h1.get(s));
+        System.out.println(h.get(s));
     }
   }
 }
