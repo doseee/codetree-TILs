@@ -21,7 +21,7 @@ public class Main {
     for (int i = 0; i < m; i++) {
       String s = br.readLine();
       Character c = s.charAt(0);
-      if (c.isDigit(c))
+      if (Character.isDigit(c))
         System.out.println(h2.get(c - '0'));
       else
         System.out.println(h1.get(s));
