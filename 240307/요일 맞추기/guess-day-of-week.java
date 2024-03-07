@@ -37,7 +37,7 @@ public class Main {
 
     if (sum > 0)
       System.out.print(day[sum % 7]);
-    else
-      System.out.print(day[(sum  + 7)% 7]);
+     else
+      System.out.print(day[(sum % 7) + 7]);
   }
 }
