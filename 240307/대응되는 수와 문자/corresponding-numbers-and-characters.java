@@ -12,17 +12,17 @@ public class Main {
 
     HashMap<String, Integer> h1 = new HashMap<>();
     HashMap<Integer, String> h2 = new HashMap<>();
-    for (int i = 1; i <= n; i++) {
+     for (int i = 0; i < n; i++) {
       String s = br.readLine();
-      h1.put(s, i);
-      h2.put(i, s);
+      h1.put(s, i + 1);
+      h2.put(i + 1, s);
     }
 
     for (int i = 0; i < m; i++) {
       String s = br.readLine();
       Character c = s.charAt(0);
       if (Character.isDigit(c))
-        System.out.println(h2.get(c - '0'));
+        System.out.println(h2.get(Integer.parseInt(s)));
       else
         System.out.println(h1.get(s));
     }
