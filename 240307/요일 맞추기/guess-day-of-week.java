@@ -13,7 +13,7 @@ public class Main {
     int d2 = Integer.parseInt(st.nextToken());
 
     int[] month = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    String[] day = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+    String[] day = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"};
 
     int sum = 0;
     if (m1 < m2) {
