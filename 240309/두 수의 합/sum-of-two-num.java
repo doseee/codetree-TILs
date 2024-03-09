@@ -18,13 +18,21 @@ public class Main {
       h.put(x, h.getOrDefault(x, Long.valueOf(0)) + 1);
     }
 
-    int ans = 0;
+    Long ans = Long.valueOf(0);
     for (Entry<Long, Long> e : h.entrySet()) {
       Long x = e.getKey();
       Long y = k - x;
       if (h.containsKey(y)) {
-        ans += ((e.getValue() * (e.getValue() - 1)) / 2);
-        ans += ((h.get(y) * (h.get(y) - 1)) / 2);
+        Long a = ((e.getValue() * (e.getValue() - 1)) / 2);
+        Long b = ((h.get(y) * (h.get(y) - 1)) / 2);
+        if (a == 0)
+          a = Long.valueOf(1);
+        if (b == 0)
+          b = Long.valueOf(1);
+        if (a == b && a == 1)
+          ans += a * b;
+        else
+          ans += a + b;
       }
     }
 
