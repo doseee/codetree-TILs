@@ -11,28 +11,20 @@ public class Main {
     int n = Integer.parseInt(st.nextToken());
     int k = Integer.parseInt(st.nextToken());
 
-    HashMap<Integer, Integer> h = new HashMap<>();
+    HashMap<Long, Long> h = new HashMap<>();
     st = new StringTokenizer(br.readLine());
     for (int i = 0; i < n; i++) {
-      int x = Integer.parseInt(st.nextToken());
-      h.put(x, h.getOrDefault(x, 0) + 1);
+      Long x = Long.parseLong(st.nextToken());
+      h.put(x, h.getOrDefault(x, Long.valueOf(0)) + 1);
     }
 
     int ans = 0;
-    if (h.size() == 1) {
-      for (Entry<Integer, Integer> e : h.entrySet()) {
-        int x = e.getValue();
-        if (e.getKey() * 2 == k && x > 1)
-          ans += (x * (x - 1));
-      }
-    }
-    for (Entry<Integer, Integer> e1 : h.entrySet()) {
-      for (Entry<Integer, Integer> e2 : h.entrySet()) {
-        if (e1.getKey() != e2.getKey()) {
-         int sum = e1.getKey() + e2.getKey();
-         if (sum == k)
-           ans += e1.getValue() * e2.getValue();
-        }
+    for (Entry<Long, Long> e : h.entrySet()) {
+      Long x = e.getKey();
+      Long y = k - x;
+      if (h.containsKey(y)) {
+        ans += ((e.getValue() * (e.getValue() - 1)) / 2);
+        ans += ((h.get(y) * (h.get(y) - 1)) / 2);
       }
     }
 
