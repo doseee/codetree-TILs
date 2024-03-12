@@ -30,7 +30,7 @@ public class Main {
         break;
       }
     }
-
-    System.out.print(sum / idx);
+    
+    System.out.print(((sum - idx + 1) / 7) + 1);
   }
 }
