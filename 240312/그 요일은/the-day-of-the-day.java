@@ -17,7 +17,9 @@ public class Main {
     String[] d = {"", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     int[] m = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    int sum = m[m1] - d1;
+    int sum = 0;
+    if (m1 != m2)
+       sum = m[m1] - d1;
     for (int i = m1 + 1; i < m2; i++)
       sum += m[i];
 
@@ -30,7 +32,11 @@ public class Main {
         break;
       }
     }
-    
-    System.out.print(((sum - idx + 1) / 7) + 1);
+
+    int ans = 0;
+    if (sum > idx)
+      ans = ((sum - idx + 1) / 7) + 1;
+
+    System.out.print(ans);
   }
 }
