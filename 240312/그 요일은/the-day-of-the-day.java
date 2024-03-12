@@ -18,12 +18,14 @@ public class Main {
     int[] m = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     int sum = 0;
-    if (m1 != m2)
-       sum = m[m1] - d1;
-    for (int i = m1 + 1; i < m2; i++)
-      sum += m[i];
-
-    sum += d2;
+    if (m1 == m2)
+      sum = d2 - d1;
+    else {
+      sum = m[m1] - d1;
+      for (int i = m1 + 1; i < m2; i++)
+        sum += m[i];
+      sum += d2;
+    }
 
     int idx = 0;
     for (int i = 1; i <= 7; i++) {
