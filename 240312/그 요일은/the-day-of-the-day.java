@@ -36,6 +36,9 @@ public class Main {
     int ans = 0;
     if (sum > idx)
       ans = ((sum - idx + 1) / 7) + 1;
+    else
+      if (a.equals("Mon"))
+        ans = 1;
 
     System.out.print(ans);
   }
