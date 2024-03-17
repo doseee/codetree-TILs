@@ -5,6 +5,7 @@ import java.awt.Point;
 public class Main {
   static Point[] a;
   static int ans, n, m;
+  static boolean[] visit;
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,28 +23,27 @@ public class Main {
     }
 
     ans = 0;
-    boolean[] visit = new boolean[n + 1];
+    visit = new boolean[n + 1];
     for (int i = 0; i < m; i++)
-      if (a[i].x == 1) 
-        dfs(1,0, visit);
-    
+      if (a[i].x == 1 || a[i].y == 1)
+        dfs(1);
+
+    for (int i = 2; i <= n; i++)
+      if (visit[i])
+        ans++;
+
     System.out.print(ans);
   }
 
-  public static void dfs(int idx, int cnt, boolean[] visit) {
+  public static void dfs(int idx) {
     if (visit[idx]) return;
     visit[idx] = true;
 
     for (int i = 0; i < m; i++) {
-      if (!visit[a[i].y] && a[i].x == idx) {
-        ans = Math.max(ans, cnt + 1);
-        dfs(a[i].y, cnt + 1, visit);
-      }
-
-      if (!visit[a[i].x] && a[i].y == idx) {
-        ans = Math.max(ans, cnt + 1);
-        dfs(a[i].x, cnt + 1, visit);
-      }
+      if (a[i].x == idx)
+        dfs(a[i].y);
+      if (a[i].y == idx)
+        dfs(a[i].x);
     }
   }
 }
