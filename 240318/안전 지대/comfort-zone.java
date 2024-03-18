@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.awt.Point;
 
 public class Main {
   static int[][] a;
@@ -15,14 +16,17 @@ public class Main {
     m = Integer.parseInt(st.nextToken());
 
     a = new int[n][m];
+    int max = 0;
     for (int i = 0; i < n; i++) {
       st = new StringTokenizer(br.readLine());
-      for (int j = 0; j < m; j++)
+      for (int j = 0; j < m; j++) {
         a[i][j] = Integer.parseInt(st.nextToken());
+        max = Math.max(a[i][j], max);
+      }
     }
 
     int ans = 0, k = 0;
-    for (int d = 1; d <= n * m; d++) {
+    for (int d = 1; d <= max; d++) {
       int idx = 0;
       visit = new boolean[n][m];
       for (int i = 0; i < n; i++) {
@@ -39,10 +43,11 @@ public class Main {
       }
 
     }
-    
-    if (ans == 0)
-      ans = 1;
-    System.out.println(ans + " " + k);
+
+    if (k == 0)
+      k = 1;
+
+    System.out.println(k + " " + ans);
 
   }
 
