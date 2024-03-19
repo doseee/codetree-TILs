@@ -28,7 +28,7 @@ public class Main {
   }
 
   public static void bfs() {
-    boolean[][] visit = new boolean[n][n];
+    boolean[][] visit = new boolean[n][m];
     visit[0][0] = true;
     Queue<Point> q = new ArrayDeque<>();
     q.add(new Point(0, 0));
