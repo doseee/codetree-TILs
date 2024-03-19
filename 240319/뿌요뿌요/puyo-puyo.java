@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.awt.Point;
 
 public class Main {
   static int[][] a;
@@ -27,7 +28,7 @@ public class Main {
           cnt = 1;
           dfs(i, j, a[i][j]);
           if (cnt >= 4)
-            idx = a[i][j];
+            idx++;
           max = Math.max(max, cnt);
         }
       }
