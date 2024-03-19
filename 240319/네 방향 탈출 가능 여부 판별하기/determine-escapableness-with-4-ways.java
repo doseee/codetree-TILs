@@ -50,6 +50,6 @@ public class Main {
   }
 
   public static boolean range(int nx, int ny) {
-    return nx >= 0 && nx < n && ny >= 0 && ny < n;
+    return nx >= 0 && nx < n && ny >= 0 && ny < m;
   }
 }
