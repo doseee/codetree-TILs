@@ -7,6 +7,7 @@ public class Main {
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     StringTokenizer st = new StringTokenizer(br.readLine());
     int n = Integer.parseInt(st.nextToken());
@@ -33,10 +34,13 @@ public class Main {
         return o2.y - o1.y;
       }
     });
-    
-    for (int i = 0; i < k; i++) {
-      System.out.print(list[i].x + " ");
-    }
-  }
 
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < k; i++)
+      sb.append(list[i].x + " ");
+
+
+    bw.write(sb.toString());
+    bw.close(); br.close();
+  }
 }
