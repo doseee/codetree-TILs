@@ -16,22 +16,22 @@ public class Main {
     }
 
     int ans = 0;
-    HashMap<Integer, Integer> h1 = new HashMap<>();
+    HashMap<Integer, Integer> h = new HashMap<>();
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
         int x = a[0][i] + a[1][j];
-        h1.put(x, h1.getOrDefault(x, 0) + 1);
+        h.put(x, h.getOrDefault(x, 0) + 1);
       }
     }
 
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
         int x = (a[2][i] + a[3][j]) * -1;
-        if (h1.containsKey(x))
-          ans += h1.get(x);
+        if (h.containsKey(x))
+          ans += h.get(x);
       }
     }
-    
+
     System.out.print(ans);
   }
 }
