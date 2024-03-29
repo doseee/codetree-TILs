@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.Map.Entry;
 
 public class Main {
 
@@ -15,23 +16,25 @@ public class Main {
     }
 
     int ans = 0;
-    HashMap<Integer, Integer> h = new HashMap<>();
+    HashMap<Integer, Integer> h1 = new HashMap<>();
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
         int x = a[0][i] + a[1][j];
-        h.put(x, h.getOrDefault(x, 0) + 1);
+        h1.put(x, h1.getOrDefault(x, 0) + 1);
       }
     }
 
+    HashMap<Integer, Integer> h2 = new HashMap<>();
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
-        int x = a[1][i] + a[2][j];
-        if (h.containsKey(x))
-          ans += h.get(x);
-        else
-          h.put(x, h.getOrDefault(x, 0) + 1);
+        int x = a[2][i] + a[3][j];
+        h2.put(x, h2.getOrDefault(x, 0) + 1);
       }
     }
+
+    for (Entry<Integer, Integer> entry : h1.entrySet())
+      if (h2.containsKey(entry.getKey() * -1))
+        ans += entry.getValue() * h2.get(entry.getKey() * -1);
 
     System.out.print(ans);
   }
