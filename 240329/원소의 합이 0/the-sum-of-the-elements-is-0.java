@@ -27,7 +27,7 @@ public class Main {
       for (int j = 0; j < n; j++) {
         int x = a[1][i] + a[2][j];
         if (h.containsKey(x))
-          ans++;
+          ans += h.get(x);
         else
           h.put(x, h.getOrDefault(x, 0) + 1);
       }
