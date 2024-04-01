@@ -21,7 +21,7 @@ public class Main {
         h.put(x, y);
     }
 
-    int ans = 0;
+    long ans = 0;
     for (Integer i : h.values())
       ans += i;
     
