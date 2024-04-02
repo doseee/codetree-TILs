@@ -23,9 +23,9 @@ public class Main {
         }
         else {
           if (x > y)
-            return 1;
+            return o2.x - o1.x;
           else
-            return 0;
+            return o1.x - o2.x;
         }
       }
     });
@@ -39,6 +39,7 @@ public class Main {
 
     for (int i = 0; i < m; i++) {
       Point p = q.poll();
+      System.out.println(p.x + " " + p.y);
       q.add(new Point(p.x + 2, p.y + 2));
     }
 
