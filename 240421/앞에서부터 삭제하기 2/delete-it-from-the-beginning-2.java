@@ -13,24 +13,25 @@ public class Main {
     for (int i = 0; i < n; i++)
       a[i] = Integer.parseInt(st.nextToken());
 
-    double ans= 0;
-    for (int i = 0; i < n - 2; i++) {
-      PriorityQueue<Integer> q = new PriorityQueue<>();
-      for (int j = i + 1; j < n; j++)
-        q.add(a[j]);
-
-      q.poll();
-
-      double sum = 0, cnt = 0;
-      while (!q.isEmpty()) {
-        sum += q.poll();
-        cnt++;
-      }
-
-      sum /= cnt;
-      ans = Math.max(ans, sum);
+    double ans= 0, sum = 0, cnt = 2;
+    PriorityQueue<Integer> q = new PriorityQueue<>();
+    for (int i = n - 1; i >= n - 2; i--) {
+        q.add(a[i]);
+        sum += a[i];
     }
 
+    for (int i = n - 3; i >= 0; i--) {
+      int t = q.poll();
+      sum -= t;
+      ans = Math.max(ans, sum / (cnt - 1));
+      if (i == 0) break;
+      q.add(t);
+      sum += t;
+
+      q.add(a[i]);
+      sum += a[i];
+      cnt++;
+    }
 
     System.out.printf("%.2f", ans);
   }
