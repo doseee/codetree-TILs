@@ -20,6 +20,10 @@ public class Main {
     int ans = 0;
     for (int i = 0; i < n; i++) {
       int t = a[i][0], cnt = 1;
+      if (cnt == m) {
+        ans++;
+        continue;
+      }
       for (int j = 1; j < n; j++) {
         if (cnt == m) {
           ans++;
@@ -37,6 +41,10 @@ public class Main {
 
     for (int i = 0; i < n; i++) {
       int t = a[0][i], cnt = 1;
+      if (cnt == m) {
+        ans++;
+        continue;
+      }
       for (int j = 1; j < n; j++) {
         if (cnt == m) {
           ans++;
