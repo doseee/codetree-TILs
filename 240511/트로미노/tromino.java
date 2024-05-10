@@ -15,10 +15,10 @@ public class Main {
     n = Integer.parseInt(st.nextToken());
     m = Integer.parseInt(st.nextToken());
 
-    a = new int[n][n];
+    a = new int[n][m];
     for (int i = 0; i < n; i++) {
       st = new StringTokenizer(br.readLine());
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < m; j++)
         a[i][j] = Integer.parseInt(st.nextToken());
     }
 
@@ -62,9 +62,12 @@ public class Main {
         sum += a[nx][ny];
       }
     }
+
+    if (cnt == 2)
+      ans = Math.max(ans, sum);
   }
 
   public static boolean range(int nx, int ny) {
-    return nx >= 0 && nx < n && ny >= 0 && ny < n;
+    return nx >= 0 && nx < n && ny >= 0 && ny < m;
   }
 }
