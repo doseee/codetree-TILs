@@ -18,12 +18,12 @@ public class Main {
     int idx = 2, d = 0, x = 0, y = 0;
     a[x][y] = 1;
     while (true) {
+        if (idx >= n * m + 1)
+          break;
         int nx = x + dx[d], ny = y + dy[d];
         if (range(nx, ny) && a[nx][ny] == 0) {
           a[nx][ny] = idx++;
           x = nx; y = ny;
-          if (idx == n * m + 1)
-            break;
         }
         else {
           d++;
