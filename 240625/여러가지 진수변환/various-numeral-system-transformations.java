@@ -9,13 +9,17 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        StringBuffer sb = new StringBuffer();
+        List<Integer> list = new ArrayList<Integer>();
         while(true) {
-            sb.append(n % b);
+            list.add(n % b);
             n /= b;
             if (n == 0) break;
         }
 
-        System.out.print(sb.reverse());
+        Collections.reverse(list);
+        String s  = "";
+        for (Integer i : list)
+            s+= i;
+        System.out.print(s);
     }
 }
