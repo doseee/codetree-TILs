@@ -26,11 +26,9 @@ public class Main {
         }
 
         //a를 옮기는 경우
-        dfs(b, b + 1, c, cnt + 1);
-        dfs(b, c - 1, c, cnt + 1);
+        dfs(b, (b + c) / 2, c, cnt + 1);
 
         //c를 옮기는 경우
-        dfs(a, a + 1, b, cnt + 1);
-        dfs(a, b - 1, b, cnt + 1);
+        dfs(a, (a + b)/ 2, b, cnt + 1);
     }
 }
