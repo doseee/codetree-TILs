@@ -26,9 +26,11 @@ public class Main {
         }
 
         //a를 옮기는 경우
-        dfs(b, (b + c) / 2, c, cnt + 1);
+        for (int i = b + 1; i < c; i++)
+            dfs(b, i, c, cnt + 1);
 
         //c를 옮기는 경우
-        dfs(a, (a + b)/ 2, b, cnt + 1);
+        for (int i = a + 1; i < b; i++)
+            dfs(a, i, b, cnt + 1);
     }
 }
