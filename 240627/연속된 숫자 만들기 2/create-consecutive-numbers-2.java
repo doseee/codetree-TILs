@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
     
     static int ans;
+  
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -26,11 +27,14 @@ public class Main {
         }
 
         //a를 옮기는 경우
-        for (int i = b + 1; i < c; i++)
-            dfs(b, i, c, cnt + 1);
-
-        //c를 옮기는 경우
-        for (int i = a + 1; i < b; i++)
-            dfs(a, i, b, cnt + 1);
+        if (c - b <= b - a && c - b != 1) {
+            for (int i = b + 1; i < c; i++)
+                dfs(b, i, c, cnt + 1);
+        }
+        else {
+            //c를 옮기는 경우
+            for (int i = a + 1; i < b; i++)
+                dfs(a, i, b, cnt + 1);
+        }
     }
 }
