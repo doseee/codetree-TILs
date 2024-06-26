@@ -2,37 +2,23 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    
-    static int ans;
   
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        int c = Integer.parseInt(st.nextToken());
+        int[] a = new int[3];
+        for (int i = 0; i < 3; i++)
+            a[i] = Integer.parseInt(st.nextToken());
 
-        ans = Integer.MAX_VALUE;
-        dfs(a, b, c, 0);
+        Arrays.sort(a);
 
+        // 세 숫자가 각각 2 초과로 차이나는 경우 2만큼 차이나게 옮긴 다음 옮겨 넣으면 되기 때문에 2번이 최대
+        int ans = 2;
+        if (a[2] - a[1] == 2 || a[1] - a[0] == 2)
+            ans = 1; // 그 두 숫자 사이에 끼우는 경우
+        if (a[2] - a[1] == 1 && a[1] - a[0] == 1)
+            ans = 0; // 이미 정ㄷ바인 경우
         System.out.print(ans);
-    }
-
-    public static void dfs(int a, int b, int c, int cnt) {
-        if (a == b || b == c || a == c) return;
-        if (c - b == 1 && b - a == 1) {
-            ans = Math.min(cnt, ans);
-            return;
-        }
-
-        //a를 옮기는 경우
-        if ((c - b <= b - a && c - b != 1) || b - a == 1) {
-                dfs(b, (b + c) / 2, c, cnt + 1);
-        }
-        if ((c - b > b - a && b - a != 1)|| c - b == 1) {
-            //c를 옮기는 경우
-                dfs(a, (a + b) / 2, b, cnt + 1);
-        }
     }
 }
