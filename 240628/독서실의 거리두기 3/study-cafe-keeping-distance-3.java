@@ -7,26 +7,24 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         String s = br.readLine();
-        int ans = 0, t = 0, idx = 0;
-        HashSet<Integer> h = new HashSet<>();
-        for (int i = 1; i < s.length() - 1; i++) {
+        int t = 0;
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i < n - 1; i++) {
             if (s.charAt(i) == '1') {
-                if (ans < i - t) {
-                    ans = i - t;
-                    idx = i;
-                }
+                list.add(i - t);
                 t = i;
             }
+        }
 
-            if (s.charAt(i - 1) == s.charAt(i + 1) && s.charAt(i) == '0' && s.charAt(i + 1) == '0') {
-                h.add(i);
+        Collections.sort(list);
+        int ans = list.get(0);
+        for (Integer i : list) {
+            if (i >= 4) {
+                if (i / 2 < ans)
+                    ans = i / 2;
+                break;
             }
         }
-
-        if (h.size() != 1 && ans != 1) {
-            ans /= 2;
-        }
-
         System.out.print(ans);
     }
 }
