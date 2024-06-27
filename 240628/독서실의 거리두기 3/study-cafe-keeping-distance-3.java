@@ -11,7 +11,7 @@ public class Main {
         HashSet<Integer> h = new HashSet<>();
         for (int i = 1; i < s.length() - 1; i++) {
             if (s.charAt(i) == '1') {
-                if (ans > i - t) {
+                if (ans >= i - t) {
                     ans = i - t;
                     idx = i;
                 }
