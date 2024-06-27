@@ -7,11 +7,11 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         String s = br.readLine();
-        int ans = 0, t = 0, idx = 0;
+        int ans = Integer.MAX_VALUE, t = 0, idx = 0;
         HashSet<Integer> h = new HashSet<>();
         for (int i = 1; i < s.length() - 1; i++) {
             if (s.charAt(i) == '1') {
-                if (ans < i - t) {
+                if (ans > i - t) {
                     ans = i - t;
                     idx = i;
                 }
@@ -23,7 +23,7 @@ public class Main {
             }
         }
 
-        if (h.size() != 1) {
+        if (h.size() != 1 && ans != 1) {
             ans /= 2;
         }
 
