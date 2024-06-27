@@ -7,24 +7,18 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         String s = br.readLine();
-        int t = 0;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 1; i < n - 1; i++) {
+        int t = 0, ans = Integer.MAX_VALUE, dist = 0;
+        for (int i = 1; i < n; i++) {
             if (s.charAt(i) == '1') {
-                list.add(i - t);
+                ans = Math.min(ans, i - t);
+                dist = Math.max(dist, i - t);
                 t = i;
             }
         }
 
-        Collections.sort(list);
-        int ans = list.get(0);
-        for (Integer i : list) {
-            if (i >= 4) {
-                if (i / 2 < ans)
-                    ans = i / 2;
-                break;
-            }
-        }
+        if (dist / 2 < ans)
+            ans = dist / 2;
+         
         System.out.print(ans);
     }
 }
