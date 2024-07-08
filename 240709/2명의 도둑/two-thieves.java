@@ -39,7 +39,7 @@ public class Main {
                 }
                 ans.add(new Point(sum, num++));
             }
-            num++;
+            num+=n;
         }
 
         Collections.sort(ans, new Comparator<Point>() {
