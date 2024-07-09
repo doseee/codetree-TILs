@@ -19,7 +19,7 @@ public class Main {
         list.add(c);
     }
 
-    ans = 0;
+    ans = Integer.MIN_VALUE;
     select = new int[list.size()];
     if (s.length() != 1)
       perm(0);
