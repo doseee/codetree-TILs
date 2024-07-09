@@ -33,8 +33,7 @@ public class Main {
         y = calc(list);
 
         int ans = -1;
-        int size = Math.min(x.size(), y.size());
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < x.size(); i++) {
             if (x.get(i) == y.get(i)) {
                 ans = i + 1;
                 break;
