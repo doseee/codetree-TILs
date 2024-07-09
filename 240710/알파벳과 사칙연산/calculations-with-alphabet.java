@@ -7,7 +7,7 @@ public class Main {
   static int[] select, a = {1, 2, 3, 4};
   static int ans;
   static String s;
-  
+
   public static void main(String[] args) throws Exception{
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     s = br.readLine();
@@ -21,7 +21,10 @@ public class Main {
 
     ans = 0;
     select = new int[list.size()];
-    perm(0);
+    if (s.length() != 1)
+      perm(0);
+    else
+      ans = 4;
 
     System.out.print(ans);
   }
@@ -60,6 +63,4 @@ public class Main {
       perm(cnt + 1);
     }
   }
-
-
 }
