@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
 
   static HashSet<Character> list;
-  static int[] select, a = {1, 2, 3, 4};
+  static int[] select;
   static int ans;
   static String s;
 
@@ -58,8 +58,8 @@ public class Main {
       return;
     }
 
-    for (int i = 0; i < 4; i++) {
-      select[cnt] = a[i];
+    for (int i = 1; i <= 4; i++) {
+      select[cnt] = i;
       perm(cnt + 1);
     }
   }
