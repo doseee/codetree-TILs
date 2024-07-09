@@ -34,7 +34,7 @@ public class Main {
 
         int ans = -1;
         for (int i = 0; i < x.size(); i++) {
-            if (x.get(i) == y.get(i)) {
+            if (x.get(i).equals(y.get(i))) {
                 ans = i + 1;
                 break;
             }
