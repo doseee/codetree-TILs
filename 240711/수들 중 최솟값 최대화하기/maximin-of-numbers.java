@@ -71,9 +71,9 @@ public class Main {
     for (int i = 0; i < n * n; i++) {
       if (!visit[i]) {
         select[cnt] = i;
-        visit[cnt] = true;
+        visit[i] = true;
         perm(cnt + 1);
-        visit[cnt] = false;
+        visit[i] = false;
        }
     }
   }
