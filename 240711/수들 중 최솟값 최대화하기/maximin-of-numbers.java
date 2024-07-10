@@ -29,7 +29,7 @@ public class Main {
     ans = 0;
     select = new int[n];
     visit = new boolean[n * n];
-    perm(0);
+    perm(0, 0);
 
     System.out.print(ans);
   }
@@ -61,20 +61,17 @@ public class Main {
     ans = Math.max(ans, min);
   }
 
-  public static void perm(int cnt) {
-    if (cnt == n) {
-      if (check())
-        calc();
-      return;
-    }
+  public static void perm(int cnt, int bitMask) {
+        if (cnt == n) {
+            if (check()) calc();
+            return;
+        }
 
-    for (int i = 0; i < n * n; i++) {
-      if (!visit[i]) {
-        select[cnt] = i;
-        visit[i] = true;
-        perm(cnt + 1);
-        visit[i] = false;
-       }
-    }
+        for (int i = 0; i < n * n; i++) {
+            if ((bitMask & (1 << i)) == 0) {
+                select[cnt] = i;
+                perm(cnt + 1, bitMask | (1 << i));
+            }
+        }
   }
 }
