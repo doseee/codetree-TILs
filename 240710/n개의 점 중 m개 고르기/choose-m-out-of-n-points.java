@@ -3,8 +3,8 @@ import java.io.*;
 import java.awt.Point;
 
 public class Main {
-
-  static int n, m, ans;
+  
+  static int n, m, ans, t;
   static int[] select, two;
   static Point[] list;
 
@@ -36,7 +36,7 @@ public class Main {
       Point p1 = list[two[0]], p2 = list[two[1]];
       int x = p1.x - p2.x, y = p1.y - p2.y;
       x *= x; y *= y;
-      ans = Math.min(ans, x + y);
+      t = Math.max(t, x + y);
       return;
     }
 
@@ -48,7 +48,9 @@ public class Main {
 
   public static void comb(int cnt, int idx) {
     if (cnt == m) {
+      t = 0;
       choice(0, 0);
+      ans = Math.min(ans, t);
       return;
     }
 
@@ -56,5 +58,6 @@ public class Main {
       select[cnt] = i;
       comb(cnt + 1, i + 1);
     }
+
   }
 }
